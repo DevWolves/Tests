@@ -9,6 +9,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //yalla bo nathil kmo she omer hador hayom
+        //yalla bo nathil kmo she omer hador hayom.
     }
 }
