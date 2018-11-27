@@ -65,18 +65,17 @@ public class MainActivity extends AppCompatActivity {
         textBoxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            String msg = textBox.getText().toString();
-            Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
-            }
-
-            private int getRandom(int from, int to) {
-                return (int) (new Random().nextDouble() * (to - from) + from);
-
-            }
-
-            private String getRandomWord(String[] words) {
-                return words[getRandom(0, words.length)];
+                String msg = textBox.getText().toString();
+                Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
             }
         });
+
+        private int getRandom(int from, int to) {
+            return (int) (new Random().nextDouble() * (to - from) + from);
+        }
+
+        private String getRandomWord(String[] words) {
+            return words[getRandom(0, words.length)];
+        }
     }
 }
