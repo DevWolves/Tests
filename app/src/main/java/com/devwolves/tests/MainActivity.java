@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         randomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int randomNumber = getRandom(0,100);
+                int randomNumber = getRandom(0, 100);
                 Toast.makeText(MainActivity.this, String.valueOf(randomNumber), Toast.LENGTH_SHORT).show();
             }
         });
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         randomWordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] words = {"dan","elai","adam shtock"};
+                String[] words = {"dan", "elai", "adam shtock"};
                 String randomWord = getRandomWord(words);
                 Toast.makeText(MainActivity.this, randomWord, Toast.LENGTH_SHORT).show();
             }
@@ -66,16 +66,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String msg = textBox.getText().toString();
-                Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private int getRandom(int from, int to) {
+        return (int) (new Random().nextDouble() * (to - from) + from);
+    }
 
-        private int getRandom(int from, int to) {
-            return (int) (new Random().nextDouble() * (to - from) + from);
-        }
-
-        private String getRandomWord(String[] words) {
-            return words[getRandom(0, words.length)];
-        }
+    private String getRandomWord(String[] words) {
+        return words[getRandom(0, words.length)];
     }
 }
