@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         });
         final EditText textBox = findViewById(R.id.text_box);
 
-        Button textBoxButton = findViewById(R.id.text_box_button);
+        final Button textBoxButton = findViewById(R.id.text_box_button);
         textBoxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +79,17 @@ public class MainActivity extends AppCompatActivity {
                 if (click == 50){
                     Toast.makeText(MainActivity.this,fiftytimes,Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        final EditText letterText = findViewById(R.id.letter_textbox);
+
+        final Button letterButton = findViewById(R.id.letter_button);
+        letterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Character letters = letterText.getText().charAt(0);
+                letters ++;
+                Toast.makeText(MainActivity.this,letters,Toast.LENGTH_SHORT).show();
             }
         });
 

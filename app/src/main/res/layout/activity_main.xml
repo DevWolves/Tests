@@ -59,4 +59,20 @@
         android:layout_centerHorizontal="true"
         android:text="50 times!"/>
 
+    <Button
+        android:id="@+id/letter_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/fifty_button"
+        android:layout_centerHorizontal="true"
+        android:text="Change your letters!"/>
+
+    <EditText
+        android:id="@+id/letter_textbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/letter_button"
+        android:layout_centerHorizontal="true"/>
+
+
 </RelativeLayout>
