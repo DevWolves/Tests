@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    int click = 1;
 
     boolean blueFlag = false;
     @Override
@@ -69,6 +70,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });
+        final Button fiftyButton = findViewById(R.id.fifty_button);
+        fiftyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                click ++;
+                String fiftytimes = "Congrats U made it to 50!";
+                if (click == 50){
+                    Toast.makeText(MainActivity.this,fiftytimes,Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
     private int getRandom(int from, int to) {
         return (int) (new Random().nextDouble() * (to - from) + from);
