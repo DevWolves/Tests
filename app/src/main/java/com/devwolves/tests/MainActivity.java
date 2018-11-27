@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     boolean blueFlag = false;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button randomButton = findViewById(R.id.random_button);
@@ -51,20 +52,31 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mainLayout.setBackgroundColor(Color.BLUE);
                 if (blueFlag) {
-                   blueButton.setBackgroundColor(Color.GRAY);
+                    blueButton.setBackgroundColor(Color.GRAY);
                 } else {
                     blueButton.setBackgroundColor(Color.BLUE);
                 }
                 blueFlag = !blueFlag;
             }
         });
-    }
+        final EditText textBox = findViewById(R.id.text_box);
 
-    private int getRandom(int from, int to){
-        return (int)(new Random().nextDouble()*(to-from)+from);
+        Button textBoxButton = findViewById(R.id.text_box_button);
+        textBoxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            String msg = textBox.getText().toString();
+            Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+            }
 
-    }
-    private String getRandomWord(String[] words){
-        return words[getRandom(0,words.length)];
+            private int getRandom(int from, int to) {
+                return (int) (new Random().nextDouble() * (to - from) + from);
+
+            }
+
+            private String getRandomWord(String[] words) {
+                return words[getRandom(0, words.length)];
+            }
+        });
     }
 }
