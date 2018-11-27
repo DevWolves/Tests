@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/random_word_button"
-        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:text="50 times!"/>
 
 </RelativeLayout>
