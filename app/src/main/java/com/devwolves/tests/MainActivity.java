@@ -1,15 +1,70 @@
 package com.devwolves.tests;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    boolean blueFlag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button randomButton = findViewById(R.id.random_button);
+        randomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int randomNumber = getRandom(0,100);
+                Toast.makeText(MainActivity.this, String.valueOf(randomNumber), Toast.LENGTH_SHORT).show();
+            }
+        });
+        Button randomWordButton = findViewById(R.id.random_word_button);
+        randomWordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] words = {"dan","elai","adam shtock"};
+                String randomWord = getRandomWord(words);
+                Toast.makeText(MainActivity.this, randomWord, Toast.LENGTH_SHORT).show();
+            }
+        });
+        final RelativeLayout mainLayout = findViewById(R.id.main_layout);
+
+        Button redButton = findViewById(R.id.red_button);
+        redButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainLayout.setBackgroundColor(Color.RED);
+
+            }
+        });
+
+        final Button blueButton = findViewById(R.id.blue_button);
+        blueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainLayout.setBackgroundColor(Color.BLUE);
+                if (blueFlag) {
+                   blueButton.setBackgroundColor(Color.GRAY);
+                } else {
+                    blueButton.setBackgroundColor(Color.BLUE);
+                }
+                blueFlag = !blueFlag;
+            }
+        });
+    }
+
+    private int getRandom(int from, int to){
+        return (int)(new Random().nextDouble()*(to-from)+from);
+
+    }
+    private String getRandomWord(String[] words){
+        return words[getRandom(0,words.length)];
     }
 }
